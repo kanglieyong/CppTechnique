@@ -19,7 +19,6 @@ int main()
   cout << "Sample size = " << Size << "\n";
 
   // using lambdas
-  int count3 = std::count_if(numbers.begin(), numbers.end(),
-			     [](int x){ return x % 3 == 0; });
+  int count3 = std::count_if(numbers.begin(), numbers.end(), [](int x){ return x % 3 == 0; });
   cout << "Count of numbers divisible by 3 : " << count3 << endl;
 }
