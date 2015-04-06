@@ -1,19 +1,15 @@
 /*
  * Simple insertion sort.
  */
-#include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
 using std::vector;
 
 template <typename Comparable>
 void insertionSort(vector<Comparable>& a, int left, int right)
 {
-  vector<Comparable> tmpArray(right - left + 1);
+  vector<Comparable> tmpArray(right - left);
   copy(a.begin() + left, a.begin() + right, tmpArray.begin());
-  cout << "Get here? Copy vector a to tmpArray " << endl;
   
   int j;
 
@@ -24,10 +20,8 @@ void insertionSort(vector<Comparable>& a, int left, int right)
     }
     tmpArray[j] = tmp;
   }
-  cout << "Get here? insertion completed" << endl;
   
-  for (int i = 0; i < right - left + 1; i++) {
+  for (int i = 0; i < right - left; i++) {
     a[left + i] = tmpArray[i];
   }
-  cout << "Get here? copy vector tmpArray to a completed " << endl;
 }
