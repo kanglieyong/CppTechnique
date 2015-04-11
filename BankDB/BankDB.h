@@ -29,10 +29,10 @@ class BankDB
   BankDB() {}
   
   bool addAccount(const BankAccount& acct);
-  void deleteAccount(const BankAccount& acct);
+  void deleteAccount(int acctNum);
   
   BankAccount& findAccount(int acctNum) throw (std::out_of_range);
-  BankAccount& findAccount(const std::string) throw (std::out_of_range);
+  BankAccount& findAccount(const std::string& name) throw (std::out_of_range);
   
   void mergeDatabase(BankDB& db);
 
