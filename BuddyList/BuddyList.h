@@ -1,3 +1,6 @@
+#ifndef BUDDY_LIST_H_
+#define BUDDY_LIST_H_
+
 #include <string>
 #include <list>
 #include <map>
@@ -15,3 +18,5 @@ class BuddyList
  protected:
   std::multimap<std::string, std::string> mBuddies;
 };
+
+#endif
