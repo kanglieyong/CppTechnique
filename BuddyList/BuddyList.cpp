@@ -2,6 +2,7 @@
 
 using std::string;
 using std::list;
+
 void Buddylist::addBuddy(const string& name, const string& buddy)
 {
   if (!isBuddy(name, buddy)) {
