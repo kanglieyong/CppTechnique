@@ -3,34 +3,73 @@
 using std::cout;
 using std::endl;
 
-struct ListNode
+static const int SIZE = 10;
+
+struct Node
 {
   int value;
-  ListNode* next;
+  Node* next;
 
-  ListNode(int inValue)
-    : value(inValue), next(0) {}
+  Node(int inValue)
+    : value(inValue), next(NULL) {}
 };
 
-void printListNode(ListNode* plist)
+Node* reverseList(Node* plist)
 {
-  while (plist->next != NULL) {
+  Node* pHead = NULL;
+  Node* current = plist;
+  Node* prev = NULL;
+
+  while (current != NULL) {
+    Node* pNext = current->next;
+    if (pNext == NULL) pHead = current;
+    current->next = prev;
+
+    prev = current;
+    current = pNext;
+  }
+
+  return pHead;
+}
+
+void printList(Node* plist)
+{
+  while (plist != NULL) {
     cout << plist->value << "->";
     plist = plist->next;
   }
   cout << "NULL" << endl;
 }
 
-int main()
+int main(void)
 {
-  ListNode* pHead = new ListNode(0);
-  ListNode* cur = pHead;
-  for (int i = 1; i < 5; i++) {
-    ListNode* newnode = new ListNode(i); 
-    cur->next = newnode;
-    cur = cur->next;
+  Node* head = NULL;
+  Node* current;
+  Node* prev;
+
+  for (int i = 0; i < SIZE; i++) {
+    current = new Node(i*i);
+    current->next = NULL;
+
+    if (head == NULL) {
+      head = current;
+    } else {
+      prev->next = current;
+    }
+    // prev = prev->next;
+    prev = current;
   }
-  printListNode(pHead);
+
+  if (head == NULL) {
+    cout << "NULL" << endl;
+  }
+  current = head;
+  printList(current);
+
+  head = reverseList(head);
+
+  current = head;
+  printList(head);
 
   return 0;
 }
