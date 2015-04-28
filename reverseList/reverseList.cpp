@@ -16,24 +16,6 @@ struct Node
 
 Node* reverseList(Node* plist)
 {
-  Node* pHead = NULL;
-  Node* current = plist;
-  Node* prev = NULL;
-
-  while (current != NULL) {
-    Node* pNext = current->next;
-    if (pNext == NULL) pHead = current;
-    current->next = prev;
-
-    prev = current;
-    current = pNext;
-  }
-
-  return pHead;
-}
-
-Node* reverseList2(Node* plist)
-{
   Node* rHead = NULL;
   Node* current = plist;  
   Node* tmp;
@@ -48,12 +30,12 @@ Node* reverseList2(Node* plist)
   return rHead;
 }
 
-
 void printList(Node* list)
 {
-  while (list != NULL) {
-    cout << list->value << "->";
-    list = list->next;
+  Node* current = list;
+  while (current != NULL) {
+    cout << current->value << "->";
+    current = current->next;
   }
   cout << "NULL" << endl;
 }
@@ -61,46 +43,46 @@ void printList(Node* list)
 int main(void)
 {
   Node* head = NULL;
+  Node* prev = NULL;
   Node* current;
-  Node* prev;
 
   for (int i = 0; i < SIZE; i++) {
     current = new Node(i*i);
     current->next = NULL;
 
-    if (head == NULL) {
-      head = current;
-    } else {
-      prev->next = current;
-    }
-    // prev = prev->next;
+    if (head == NULL) head = current;
+    else        prev->next = current;
+
     prev = current;
   }
 
   if (head == NULL) {
     cout << "NULL" << endl;
   }
-  current = head;
-  printList(current);
+  cout << "Test head" << endl;
+  printList(head);
 
-  current = head;
-  current = reverseList2(current);
-  printList(current);
+  cout << "After reverse" << endl;
+  head = reverseList(head);
+  printList(head);
 
   cout << endl;
 
   Node* testNode = NULL;
+  cout << "Test NULL" << endl;
   printList(testNode);
-  testNode = reverseList2(testNode);
+  testNode = reverseList(testNode);
+  cout << "After reverse" << endl;
   printList(testNode);
 
   cout << endl;
 
   Node* more = new Node(10);
+  cout << "Test 1 element" << endl;
   cout << more << endl;
   printList(more);
-  cout << more << endl;
-  more = reverseList2(more);
+  cout << "After reverse" << endl;
+  more = reverseList(more);
   printList(more);
 
   cout << endl << "Destroy list: " << endl;
