@@ -65,7 +65,6 @@ int main(void)
   cout << "After reverse" << endl;
   head = reverseList(head);
   printList(head);
-
   cout << endl;
 
   Node* testNode = NULL;
@@ -74,7 +73,6 @@ int main(void)
   testNode = reverseList(testNode);
   cout << "After reverse" << endl;
   printList(testNode);
-
   cout << endl;
 
   Node* more = new Node(10);
@@ -84,10 +82,17 @@ int main(void)
   cout << "After reverse" << endl;
   more = reverseList(more);
   printList(more);
+  cout << endl; 
 
-  cout << endl << "Destroy list: " << endl;
+  cout<< "Destroy list head: " << endl;
+  Node* tmp = NULL;
   while (head != NULL) {
-    delete head;
+    tmp = head;
+    cout << "Delete tmp: address = " << tmp 
+         << ", value = "             << tmp->value
+	 << ", next = "              << tmp->next  << endl;
+    
+    delete tmp;
     head = head->next;
   }
   if (head == NULL) cout << "head is NULL." << endl;
