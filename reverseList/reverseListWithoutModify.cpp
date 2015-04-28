@@ -51,7 +51,15 @@ void printListWithoutModify(Node* head)
     nodes.pop();
   }
 }
-
+void printListByRecurse(Node* head)
+{
+  if (head != NULL) {
+    if (head->next != NULL) {
+      printListByRecurse(head->next);
+    }
+    cout << head << ", " << head->value << endl;
+  }
+}
 
 int main(void)
 {
@@ -71,14 +79,20 @@ int main(void)
   printList(head);
   cout << endl;
 
+  cout << "Loop version:" << endl;
   printListWithoutModify(head);
+  cout << endl;
+
+  cout << "Recurse version:" << endl;
+  printListByRecurse(head);
   cout << endl;
 
   Node* testNode = NULL;
   printListWithoutModify(testNode);
-  cout << endl;
   
   destroyList(&head);
+
+  cout << endl;
   
   return 0;
 }
