@@ -32,11 +32,28 @@ Node* reverseList(Node* plist)
   return pHead;
 }
 
-void printList(Node* plist)
+Node* reverseList2(Node* plist)
 {
-  while (plist != NULL) {
-    cout << plist->value << "->";
-    plist = plist->next;
+  Node* rHead = NULL;
+  Node* current = plist;  
+  Node* tmp;
+
+  while (current != NULL) {
+    tmp = current->next;
+    current->next = rHead;
+    
+    rHead = current;
+    current = tmp;
+  }
+  return rHead;
+}
+
+
+void printList(Node* list)
+{
+  while (list != NULL) {
+    cout << list->value << "->";
+    list = list->next;
   }
   cout << "NULL" << endl;
 }
@@ -66,10 +83,32 @@ int main(void)
   current = head;
   printList(current);
 
-  head = reverseList(head);
-
   current = head;
-  printList(head);
+  current = reverseList2(current);
+  printList(current);
+
+  cout << endl;
+
+  Node* testNode = NULL;
+  printList(testNode);
+  testNode = reverseList2(testNode);
+  printList(testNode);
+
+  cout << endl;
+
+  Node* more = new Node(10);
+  cout << more << endl;
+  printList(more);
+  cout << more << endl;
+  more = reverseList2(more);
+  printList(more);
+
+  cout << endl << "Destroy list: " << endl;
+  while (head != NULL) {
+    delete head;
+    head = head->next;
+  }
+  if (head == NULL) cout << "head is NULL." << endl;
 
   return 0;
 }
