@@ -79,7 +79,7 @@ int main(void)
 
   Node* more = new Node(10);
   cout << "Test 1 element" << endl;
-  cout << more << endl;
+  cout << "Address: " << more << endl;
   printList(more);
   cout << "After reverse" << endl;
   more = reverseList(more);
