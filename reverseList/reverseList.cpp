@@ -40,6 +40,17 @@ void printList(Node* list)
   cout << "NULL" << endl;
 }
 
+void destroyList(Node** plist)
+{
+  Node* tmp;
+  while (plist && *plist) {
+    tmp = *plist;
+    cout << tmp << ", value = " << tmp->value << endl;
+    delete tmp;
+    *plist = (*plist)->next;
+  }
+}
+
 int main(void)
 {
   Node* head = NULL;
@@ -48,7 +59,6 @@ int main(void)
 
   for (int i = 0; i < SIZE; i++) {
     current = new Node(i*i);
-    current->next = NULL;
 
     if (head == NULL) head = current;
     else        prev->next = current;
@@ -83,18 +93,12 @@ int main(void)
   more = reverseList(more);
   printList(more);
   cout << endl; 
+  destroyList(&more);
+  cout << endl;
 
-  cout<< "Destroy list head: " << endl;
-  Node* tmp = NULL;
-  while (head != NULL) {
-    tmp = head;
-    cout << "Delete tmp: address = " << tmp 
-         << ", value = "             << tmp->value
-	 << ", next = "              << tmp->next  << endl;
-    
-    delete tmp;
-    head = head->next;
-  }
+  destroyList(&head);
+
+
   if (head == NULL) cout << "head is NULL." << endl;
 
   return 0;
