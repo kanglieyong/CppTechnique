@@ -1,0 +1,17 @@
+#include <iostream>
+#include <random>
+#include <time.h>
+
+using std::cout;
+using std::endl;
+using std::mt19937;
+using std::uniform_int_distribution;
+
+int main(void)
+{
+  mt19937 eng(static_cast<unsigned long>(time(nullptr)));
+  uniform_int_distribution<int> dist(1, 99);
+  cout << dist(eng) << endl;
+
+  return 0;
+}
