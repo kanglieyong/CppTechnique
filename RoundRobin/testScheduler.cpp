@@ -2,23 +2,20 @@
 #include "Scheduler.hpp"
 
 #include <iostream>
-#include <sstream>
+#include <string>
 #include <vector>
 
 using std::cout;
 using std::endl;
-using std::stringstream;
+using std::string;
 using std::vector;
+using std::to_string;
 
 int main(void)
 {
   vector<Process> processes;
   for (int i = 0; i < 7; i++) {
-    stringstream ss;
-    string str;
-    ss << i;
-    ss >> str;
-    str = "Process " + str;
+    string str = "Process " + to_string(i);
     processes.push_back(Process(str));
   }
   Scheduler sched(processes);
