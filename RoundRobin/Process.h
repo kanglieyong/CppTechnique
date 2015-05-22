@@ -14,12 +14,12 @@ public:
   Process(const string& name)
     : mName(name) {}
 
-  void doWorkDuringTimeSlice()
+  void doWorkDuringTimeSlice() const
   {
     cout << "Process " << mName << " performing work during time slice." << endl;
   }
 
-  bool operator==(const Process& rhs)
+  bool operator==(const Process& rhs) const
   {
     return mName == rhs.mName;
   }
