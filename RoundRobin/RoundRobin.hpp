@@ -28,9 +28,10 @@ private:
 
 template <typename T>
 RoundRobin<T>::RoundRobin(int numExpected)
-  : mElems(numExpected),
-    mCurElem(mElems.begin())
-{}
+{
+  mElems.reserve(numExpected);
+  mCurElem = mElems.begin();
+}
 
 template <typename T>
 RoundRobin<T>::~RoundRobin()
