@@ -1,2 +1,2 @@
-# CppToys
+# Cpp technique
 tiny Cpp Codes
