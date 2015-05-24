@@ -25,12 +25,10 @@ void printList(Node* head)
 
 void destroyList(Node** pHead)
 {
-  Node* current = NULL;
   while (pHead && *pHead) {
-    current = *pHead;
-    cout << "Destroy: " << current << ", " << current->value << endl;
+    cout << "Destroy: " << *pHead << ", " << (*pHead)->value << endl;
+    delete *pHead;
     *pHead = (*pHead)->next;
-    delete current;
   }
   
 }

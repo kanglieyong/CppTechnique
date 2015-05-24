@@ -42,11 +42,9 @@ void printList(Node* list)
 
 void destroyList(Node** plist)
 {
-  Node* tmp;
   while (plist && *plist) {
-    tmp = *plist;
-    cout << tmp << ", value = " << tmp->value << endl;
-    delete tmp;
+    cout << *plist << ", value = " << (*plist)->value << endl;
+    delete *plist;
     *plist = (*plist)->next;
   }
 }
@@ -97,7 +95,6 @@ int main(void)
   cout << endl;
 
   destroyList(&head);
-
 
   if (head == NULL) cout << "head is NULL." << endl;
 
