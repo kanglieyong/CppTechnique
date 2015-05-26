@@ -11,12 +11,12 @@ class GamePiece
 {
  public:
   explicit GamePiece(int num = 0)
-  : number(num) {}
+  : mNumber(num) {}
 
-  const int getNum() const { return number; }
+  const int getNum() const { return mNumber; }
 
  protected:
-  int number;
+  int mNumber;
 };
 
 class GameBoard
