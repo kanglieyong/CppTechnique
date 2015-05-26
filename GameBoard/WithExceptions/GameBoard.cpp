@@ -66,15 +66,30 @@ void GameBoard::copyFrom(const GameBoard& src) throw (bad_alloc)
 
 void GameBoard::setPieceAt(int x, int y, const GamePiece& inElem) throw (out_of_range)
 {
+  if (x < 0)        throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (x >= mWidth)  throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (y < 0)        throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (y >= mHeight) throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+
   mCells[x][y] = inElem;
 }
 
 GamePiece& GameBoard::getPieceAt(int x, int y) throw (out_of_range)
 {
+  if (x < 0)        throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (x >= mWidth)  throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (y < 0)        throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (y >= mHeight) throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+
   return mCells[x][y];
 }
 
 const GamePiece& GameBoard::getPieceAt(int x, int y) const throw (out_of_range)
 {
+  if (x < 0)        throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (x >= mWidth)  throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (y < 0)        throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+  if (y >= mHeight) throw out_of_range("GameBoard::setPieceAt: x-coord negative");
+
   return mCells[x][y];
 }
