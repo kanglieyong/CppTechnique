@@ -2,7 +2,16 @@
 #define GAME_BOARD_H_
 
 class GamePiece
-{};
+{
+ public:
+  explicit GamePiece(int num = 0)
+  : mNumber(num) {}
+  
+  const int getNum() const { return mNumber; }
+
+ private:
+  int mNumber;
+};
 
 class GameBoard
 {
