@@ -10,6 +10,7 @@ using std::endl;
 using std::string;
 using std::ifstream;
 using std::vector;
+using std::exception;
 using std::invalid_argument;
 using std::runtime_error;
 
@@ -43,10 +44,7 @@ int main(void)
 
   try {
     readIntegerFile(fileName, dest);
-  } catch (const invalid_argument& e) {
-    cerr << e.what() << endl;
-    return 1;
-  } catch (const runtime_error& e) {
+  } catch (const exception& e) {
     cerr << e.what() << endl;
     return 1;
   }
