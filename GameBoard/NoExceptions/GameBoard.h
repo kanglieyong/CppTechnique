@@ -16,7 +16,7 @@ class GameBoard
   GamePiece& getPieceAt(int x, int y);
   const GamePiece& getPieceAt(int x, int y) const;
   int getHeight() const { return mHeight; }
-  int getWigth() const { return mHeight; }
+  int getWidth() const { return mWidth; }
 
   static const int kDefaultWidth = 100;
   static const int kDefaultHeight = 100;
