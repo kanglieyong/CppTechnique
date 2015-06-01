@@ -14,10 +14,10 @@ struct Node
     : value(inValue), next(NULL) {}
 };
 
-Node* reverseList(Node* plist)
+Node* reverseList(Node* pRoot)
 {
   Node* rHead = NULL;
-  Node* current = plist;  
+  Node* current = pRoot;
   Node* tmp;
 
   while (current != NULL) {
