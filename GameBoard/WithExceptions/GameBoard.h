@@ -4,9 +4,6 @@
 #include <stdexcept>
 #include <new>
 
-using std::bad_alloc;
-using std::out_of_range;
-
 class GamePiece
 {
  public:
@@ -22,16 +19,16 @@ class GamePiece
 class GameBoard
 {
  public:
-  GameBoard(int inWidth = kDefaultWidth, int inHeight = kDefaultHeight) throw (bad_alloc);
-  GameBoard(const GameBoard& src) throw (bad_alloc);
+  GameBoard(int inWidth = kDefaultWidth, int inHeight = kDefaultHeight) throw (std::bad_alloc);
+  GameBoard(const GameBoard& src) throw (std::bad_alloc);
   ~GameBoard() noexcept;
-  GameBoard& operator=(const GameBoard& rhs) throw (bad_alloc);
+  GameBoard& operator=(const GameBoard& rhs) throw (std::bad_alloc);
 
-  void setPieceAt(int x, int y, const GamePiece& inPiece) throw (out_of_range);
-  GamePiece& getPieceAt(int x, int y) throw (out_of_range);
-  const GamePiece& getPieceAt(int x, int y) const throw (out_of_range);
-  int getHeight() const throw (out_of_range) { return mHeight; }
-  int getWidth() const throw (out_of_range){ return mWidth; }
+  void setPieceAt(int x, int y, const GamePiece& inPiece) throw (std::out_of_range);
+  GamePiece& getPieceAt(int x, int y) throw (std::out_of_range);
+  const GamePiece& getPieceAt(int x, int y) const throw (std::out_of_range);
+  int getHeight() const throw (std::out_of_range) { return mHeight; }
+  int getWidth() const throw (std::out_of_range){ return mWidth; }
 
   static const int kDefaultWidth = 100;
   static const int kDefaultHeight = 100;
@@ -40,7 +37,7 @@ class GameBoard
   GamePiece** mCells;
   int mWidth, mHeight;
 
-  void copyFrom(const GameBoard& src) throw (bad_alloc);
+  void copyFrom(const GameBoard& src) throw (std::bad_alloc);
 };
 
 #endif

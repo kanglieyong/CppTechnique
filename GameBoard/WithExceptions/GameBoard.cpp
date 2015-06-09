@@ -1,4 +1,6 @@
 #include "GameBoard.h"
+using std::out_of_range;
+using std::bad_alloc;
 
 GameBoard::GameBoard(int inWidth, int inHeight) throw (bad_alloc)
   : mWidth(inWidth),
