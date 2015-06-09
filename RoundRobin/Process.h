@@ -4,19 +4,15 @@
 #include <iostream>
 #include <string>
 
-using std::cout;
-using std::endl;
-using std::string;
-
 class Process
 {
 public:
-  Process(const string& name)
+  Process(const std::string& name)
     : mName(name) {}
 
   void doWorkDuringTimeSlice() const
   {
-    cout << "Process " << mName << " performing work during time slice." << endl;
+    std::cout << "Process " << mName << " performing work during time slice." << std::endl;
   }
 
   bool operator==(const Process& rhs) const
@@ -25,7 +21,7 @@ public:
   }
   
 protected:
-  string mName;
+  std::string mName;
 };
 
 #endif
