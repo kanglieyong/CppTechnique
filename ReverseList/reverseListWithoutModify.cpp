@@ -49,6 +49,7 @@ void printListWithoutModify(Node* head)
     nodes.pop();
   }
 }
+
 void printListByRecurse(Node* head)
 {
   if (head != NULL) {
