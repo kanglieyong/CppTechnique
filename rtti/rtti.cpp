@@ -48,13 +48,10 @@ int main(void)
   Superb* ps;
   for (int i = 0; i < 5; i++) {
     pg = getOne();
-    cout << "Notice: ";
     pg->Speak();
     if (ps = dynamic_cast<Superb *>(pg)) {
       ps->Say();
     }
-    cout << "Notice: ";
-    pg->Speak();
     cout << "\n";
     delete pg;
   }
