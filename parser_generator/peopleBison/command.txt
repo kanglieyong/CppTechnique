@@ -1,0 +1,4 @@
+flex json.fl
+bison -d json.y
+ 
+gcc -o lex json.tab.c lex.yy.c -lfl
