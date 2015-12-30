@@ -1,0 +1,3 @@
+$ bison -d grammar.y
+$ flex tokens.l
+gcc grammar.tab.c lex.yy.c -o parser -lfl
