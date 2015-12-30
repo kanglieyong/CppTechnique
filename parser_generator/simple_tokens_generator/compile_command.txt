@@ -1,0 +1,2 @@
+$ flex tokens_generator.fl
+$ gcc lex.yy.c -o example -lfl
