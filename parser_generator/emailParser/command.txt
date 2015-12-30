@@ -1,0 +1,3 @@
+$ bison -d config.y
+$ flex config.fl
+$ gcc config.tab.c lex.yy.c -o emailparser -lfl
