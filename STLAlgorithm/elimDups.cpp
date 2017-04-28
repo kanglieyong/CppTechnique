@@ -14,7 +14,8 @@ int main()
 {
   std::vector<std::string> words{"the", "quick", "red", "fox", "jumps", "over", "the", "slow", "red", "turtle"};
   elimDups(words);
-  for (auto &x : words) std::cout << x << " ";
+  std::for_each(words.begin(), words.end(), [](const std::string &s) { std::cout << s << " "; });
+  //for (auto &x : words) std::cout << x << " ";
   std::cout << std::endl;
 
   return 0;
