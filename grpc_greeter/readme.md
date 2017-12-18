@@ -1,9 +1,23 @@
-# compile server command
+## generate protobuf code command
 ```
-g++ -std=c++11 greeter_server.cc helloworld.grpc.pb.cc helloworld.pb.cc -lprotobuf -lgrpc++ -lgrpc -pthread -o server.out
+protoc --cpp_out=. helloworld.proto
 ```
 
-# compile client command
+## generate grpc code command
 ```
-g++ -std=c++11 greeter_client.cc helloworld.grpc.pb.cc helloworld.pb.cc -lprotobuf -lgrpc++ -lgrpc -pthread -o client.out
+protoc --grpc_out=. --plugin=protoc-gen-grpc=/usr/local/bin/grpc_cpp_plugin helloworld.proto
+```
+
+## compile server command
+```
+g++ -std=c++11 greeter_server.cc helloworld.grpc.pb.cc helloworld.pb.cc \
+    -lprotobuf -lgrpc++ -lgrpc -pthread \
+    -o server.out
+```
+
+## compile client command
+```
+g++ -std=c++11 greeter_client.cc helloworld.grpc.pb.cc helloworld.pb.cc \
+    -lprotobuf -lgrpc++ -lgrpc -pthread \
+    -o client.out
 ```
