@@ -1,5 +1,11 @@
 #ifndef TEXTRESULT_H_
 #define TEXTRESULT_H_
+#include <string>
+#include <vector>
+#include <memory>
+#include <set>
+#include <map>
+#include <iostream>
 
 class QueryResult {
 friend std::ostream& print(std::ostream&, const QueryResult&);
