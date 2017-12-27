@@ -11,13 +11,13 @@ protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` helloworld.
 ## compile server command
 ```
 g++ -std=c++11 greeter_server.cc helloworld.grpc.pb.cc helloworld.pb.cc \
-    -lprotobuf -lgrpc++ -lgrpc -pthread \
+    -lprotobuf -lgrpc++ -pthread \
     -o server.out
 ```
 
 ## compile client command
 ```
 g++ -std=c++11 greeter_client.cc helloworld.grpc.pb.cc helloworld.pb.cc \
-    -lprotobuf -lgrpc++ -lgrpc -pthread \
+    -lprotobuf -lgrpc++ -pthread \
     -o client.out
 ```
