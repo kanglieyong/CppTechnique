@@ -6,6 +6,8 @@
 #include <grpc++/grpc++.h>
 #include <grpc/support/log.h>
 
+#include <glog/logging.h>
+
 #include "helloworld.grpc.pb.h"
 
 using grpc::Server;
@@ -47,10 +49,12 @@ private:
 
     void Proceed() {
       if (status_ == CREATE) {
+        LOG(INFO) << "Status: CREATE" ;
         std::cout << "Status: CREATE" << std::endl;
         status_ = PROCESS;
         service_->RequestSayHello(&ctx_, &request_, &responder_, cq_, cq_, this);
       } else if (status_ == PROCESS) {
+        LOG(INFO) << "Status: PROCESS" ;
         std::cout << "Status: PROCESS" << std::endl;
         new CallData(service_, cq_);
         std::string prefix("Hello ");
@@ -58,6 +62,7 @@ private:
         status_ = FINISH;
         responder_.Finish(reply_, Status::OK, this);
       } else {
+        LOG(INFO) << "Status: FINISH" ;
         std::cout << "Status: FINISH" << std::endl;
         GPR_ASSERT(status_ == FINISH);
         delete this;
@@ -91,8 +96,13 @@ private:
 };
 
 
-int main()
+int main(int argc, char *argv[])
 {
+  google::InitGoogleLogging(argv[0]);
+  //google::SetLogDestination(google::GLOG_INFO, "./log/");
+
+  LOG(INFO) << "Init App";
+
   ServerImpl server;
   server.Run();
 
